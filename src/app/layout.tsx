@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
 import { ReactNode } from 'react';
-import './ui/globals.css';
+import '@/app/components-ui/globals.css';
 import { AppProps } from 'next/app';
 
-import Navbar from './ui/header/Navbar';
+import Navbar from '@/app/components-ui/header/Navbar';
 import { Inter } from 'next/font/google';
-import Providers from './ui/providers/providers';
+import Providers from '@/app/components-ui/providers/providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
