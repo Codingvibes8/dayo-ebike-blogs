@@ -1,6 +1,6 @@
 import About from './about/page';
 import Blog from './blogs/page';
-import Hero from '@/app/components-ui/hero/Hero';
+import Hero from '../components-ui/hero/Hero';
 
 export default function Home() {
   return (
