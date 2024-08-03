@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*public .dark {*/
+/*  --bg: #0f172a;*/
+/*  --textColor: #ddd;*/
+/*  --softBg: #1f273a;*/
+/*  --softTextColor: #a6a6a6;*/
+/*}*/
+
+/*.light {*/
+/*  --bg: rgb(248, 236, 236);*/
+/*  --textColor: black;*/
+/*  --softBg: #f0f0f0;*/
+/*  --softTextColor: #626262;*/
+/*}*/
+

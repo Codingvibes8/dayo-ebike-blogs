@@ -1,0 +1,5 @@
+{
+  "svn.enabled": true,
+  "svn.multipleFolders.enabled": true,
+  "svn.multipleFolders.depth": 8
+}
