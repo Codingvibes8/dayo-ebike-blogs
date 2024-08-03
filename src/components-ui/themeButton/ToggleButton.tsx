@@ -1,49 +1,34 @@
-import React, {useEffect, useState} from "react";
-import {useTheme} from "next-themes";
+'use client'
 
-const themes = [
-    { name: "Light" },
-    { name: "Dark" },
-];
+import { FiSun, FiMoon } from "react-icons/fi"
+import { useState, useEffect } from 'react'
+import { useTheme } from 'next-themes'
+import Image from "next/image"
 
-interface ToggleButtonProps {
-    onClick: () => void;
-    selectedTheme: string | undefined;
-}
-const ToggleButton: React.FC<ToggleButtonProps> = ({ onClick, selectedTheme }) => {
-    const [mounted, setMounted] = useState(false);
-    const { theme, setTheme } = useTheme();
+export default function ToggleButton() {
+    const [mounted, setMounted] = useState(false)
+    const { setTheme, resolvedTheme } = useTheme()
 
-    // When mounted on client, now we can show the UI
-    useEffect(() => setMounted(true), []);
+    useEffect(() =>  setMounted(true), [])
 
-    if (!mounted) return null;
-    return (
-        <>
-      {/*<span className="p-1 sm:px-3 sm:py-2 text-th-secodary">*/}
-      {/*  Current theme: {mounted && theme}*/}
-      {/*</span>*/}
-            <div>
-                <label htmlFor="theme-select" className="sr-only mr-2">
-                    Choose theme:
-                </label>
-                <select
-                    name="theme"
-                    id="theme-select"
-                    className="bg-white text-gray-800 border-gray-800 border py-1 px-3"
-                    onChange={(e) => setTheme(e.currentTarget.value)}
-                    value={theme}
-                >
-                    <option value="system">System</option>
-                    {themes.map((t) => (
-                        <option key={t.name.toLowerCase()} value={t.name.toLowerCase()}>
-                            {t.name}
-                        </option>
-                    ))}
-                </select>
-            </div>
-        </>
-    );
+    if (!mounted) return (
+        <Image
+            src="data:image/svg+xml;base64,PHN2ZyBzdHJva2U9IiNGRkZGRkYiIGZpbGw9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMCIgdmlld0JveD0iMCAwIDI0IDI0IiBoZWlnaHQ9IjIwMHB4IiB3aWR0aD0iMjAwcHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB4PSIyIiB5PSIyIiBmaWxsPSJub25lIiBzdHJva2Utd2lkdGg9IjIiIHJ4PSIyIj48L3JlY3Q+PC9zdmc+Cg=="
+            width={30}
+            height={30}
+            sizes="30x30"
+            alt="Loading Light/Dark Toggle"
+            priority={false}
+            title="Loading Light/Dark Toggle"
+        />
+    )
+
+    if (resolvedTheme === 'dark') {
+        return <FiSun onClick={() => setTheme('light')} className='cursor-pointer w-[30px] h-[30px] bg-indigo-100 rounded-full' />
+    }
+
+    if (resolvedTheme === 'light') {
+        return <FiMoon onClick={() => setTheme('dark')} className='cursor-pointer w-[30px] h-[30px] bg-indigo-100 rounded-full' />
+    }
 
 }
-export default ToggleButton

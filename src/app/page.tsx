@@ -4,7 +4,7 @@ import Hero from '../components-ui/hero/Hero';
 
 export default function Home() {
   return (
-    <main className='flex max-w-[1536px] flex-col p-6'>
+    <main>
       <Hero />
       <About />
       <Blog />

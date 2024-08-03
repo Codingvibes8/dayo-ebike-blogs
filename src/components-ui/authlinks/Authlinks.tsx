@@ -1,28 +1,33 @@
-import Link from 'next/link';
-import React from 'react';
 
-const Authlinks = () => {
-  const status = 'unauthenticated';
+import React from 'react';
+import {RegisterLink, LoginLink,LogoutLink} from "@kinde-oss/kinde-auth-nextjs/components";
+import {getKindeServerSession} from "@kinde-oss/kinde-auth-nextjs/server";
+
+
+
+
+
+
+const AuthLinks = () => {
+    // const {isAuthenticated,getUser} = getKindeServerSession();
+    // const isUserAuthenticated = await isAuthenticated();
+    //
+    //
+    // const user = await getUser();
+    //
+    // console.log(user);
   return (
-    <>
-      {status === 'unauthenticated' ? (
-        <Link
-          href='/login'
-          className='text-white hover:bg-white hover:text-black rounded-lg p-2  ease-in-out duration-300 bg-blue-400 font-bold'>
-          Login
-        </Link>
-      ) : (
-        <>
-          <Link
-            href='/write'
-            className='text-white hover:bg-white hover:text-black rounded-lg p-2  ease-in-out duration-300 bg-blue-400 font-bold'>
-            Write
-          </Link>
-          <span className='cursor-pointer'>Logout</span>
-        </>
-      )}
-    </>
+
+    <div className='flex flex-col items-center justify-center gap-4'>
+        <button className={'px-4 py-1 rounded-xl bg-lime-500'}>
+            <LoginLink>Sign in</LoginLink>
+        </button>
+
+      <RegisterLink>Sign up</RegisterLink>
+
+      <LogoutLink>Log out</LogoutLink>
+    </div>
   );
 };
 
-export default Authlinks;
+export default AuthLinks;

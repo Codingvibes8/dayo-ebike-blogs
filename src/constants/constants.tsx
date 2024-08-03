@@ -2,7 +2,7 @@ import { FaFacebook, FaTwitter, FaWhatsapp } from 'react-icons/fa';
 export const socialIcons = [
   {
     id: 1,
-    icon: <FaFacebook className='text-lg text-white dark:text-blue-800 hover:text-yellow-300' />,
+    icon: <FaFacebook className='text-lg text-white hover:text-yellow-300' />,
     path: 'www.facebook.com',
   },
   {
@@ -18,9 +18,9 @@ export const socialIcons = [
 ];
 
 export const links = [
-  { id: 1, path: '/', label: 'Homepage' },
+
 
   { id: 3, path: '/blogs', label: 'Blogs' },
 
-  { id: 5, path: '/login', label: 'SignIn' },
+
 ];

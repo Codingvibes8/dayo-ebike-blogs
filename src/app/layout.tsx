@@ -1,9 +1,10 @@
 
 import "./globals.css";
 import { Inter } from "next/font/google";
-import {ThemeProvider} from "next-themes";
+
 import Navbar from "@/src/components-ui/header/Navbar";
 import React from "react";
+import {Providers} from "@/src/providers/ThemeProvider";
 
 
 
@@ -21,14 +22,14 @@ export default function RootLayout({ children }:{children:React.ReactNode}) {
       <html lang="en">
       <body className={inter.className}>
 
-        <ThemeProvider attribute='class'>
-            <main className="container">
-              <div className="wrapper">
+        <Providers attribute="class" defaultTheme='system' enableSystem>
+            <main className='overflow-x-hidden'>
+
               <Navbar/>
                 {children}
-              </div>
+
             </main>
-        </ThemeProvider>
+        </Providers>
       </body>
       </html>
   );

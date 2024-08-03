@@ -1,20 +1,19 @@
  'use client';
  import React,{useState,useEffect} from "react";
-
- import Link from "next/link";
  import {useTheme} from "next-themes";
+ import Link from "next/link";
 
-
-import ToggleButton from '../themeButton/ToggleButton'
+ import ToggleButton from '../themeButton/ToggleButton'
  import MenuBtn from "./MenuBtn";
  import {socialIcons} from '../../constants/constants';
  import {links} from '../../constants/constants';
+ import AuthLinks from "../authlinks/Authlinks";
+ import {  lusitana } from '../fonts/fonts';
 
 
 
 
-
-const Navbar = () => {
+ const Navbar = () => {
     const [mounted, setMounted] = useState(false);
     const { resolvedTheme, setTheme } = useTheme();
 
@@ -24,13 +23,13 @@ const Navbar = () => {
 
 
   return (
-      <nav className="fixed top-0 left-0 w-full text-gray-900  dark:bg-green-300 bg-indigo-500">
+      <nav className="flex items-center justify-center fixed top-0 left-0 w-full text-gray-900  dark:bg-green-300 bg-indigo-500 px-6 h-20">
 
                      {/*logo*/}
           <div className={'flex items-center justify-between mx-auto  w-full'}>
-              <div className="text-center text-2xl font-bold justify-start">
+              <Link href='/' className={`${lusitana.className} text-center text-2xl font-bold justify-start cursor-pointer`}>
                   E-bike Blogs
-              </div>
+              </Link>
 
               {/*icons div*/}
               <div className="gap-2 items-center justify-center hidden md:flex">
@@ -41,11 +40,14 @@ const Navbar = () => {
                   ))}
               </div>
               {/*links div*/}
-              <div className="md:flex hidden gap-4 items-center justify-center">
+              <div className="md:flex hidden gap-4 items-center justify-center cursor-pointer">
                   {links.map((item) => (
+                      <>
                       <Link href={item.path} key={item.id}>
                           {item.label}
                       </Link>
+                      <AuthLinks/>
+                      </>
                   ))}
               </div>
 
